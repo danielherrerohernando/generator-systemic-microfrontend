@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: <%= registryname %>.azurecr.io/<%= name %>
+  repository: registry.azurecr.io/<%= name %>
   tag: latest
   pullPolicy: Always
 
