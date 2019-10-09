@@ -1,0 +1,55 @@
+{
+  "name": "@guidesmiths/generator-systemic-micro-frontend",
+  "version": "1.0.0",
+  "description": "A generator for a systemic micro-frontend service",
+  "homepage": "https://github.com/guidesmiths",
+  "author": {
+    "name": "Guidesmiths Ltd",
+    "email": "hello@guidesmiths.com"
+  },
+  "scripts": {
+    "test": "gulp"
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "keywords": [
+    "dependency",
+    "injection",
+    "boot",
+    "scaffold",
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "lodash": "^4.17.2",
+    "require-all": "^2.1.0",
+    "yeoman-generator": "^0.23.0",
+    "yosay": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.1.1",
+    "eslint-config-imperative-es6": "^1.0.0",
+    "eslint-plugin-mocha": "^5.2.1",
+    "gulp": "^3.9.0",
+    "gulp-babel-istanbul": "^1.6.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^1.0.0",
+    "gulp-line-ending-corrector": "^1.0.1",
+    "gulp-mocha": "^3.0.1",
+    "gulp-nsp": "^2.1.0",
+    "gulp-plumber": "^1.0.0",
+    "husky": "^1.3.1",
+    "yeoman-assert": "^2.0.0",
+    "yeoman-test": "^1.0.0"
+  },
+  "eslintConfig": {
+    "extends": "imperative-es6",
+    "env": {
+      "mocha": true
+    }
+  },
+  "repository": "guidesmiths/generator-systemic-microfrontend",
+  "license": "ISC"
+}
