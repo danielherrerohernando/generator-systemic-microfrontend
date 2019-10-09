@@ -30,14 +30,7 @@ module.exports = yeoman.Base.extend({
           upperName: upperName.replace(/-/g, "_")
         };
         this.props = _answers;
-        this.props.components = [
-          "app",
-          "config",
-          "healthcheck",
-          "logging",
-          "express",
-          "routes"
-        ];
+        this.props.components = ["app", "config", "healthcheck", "logging", "express", "routes"];
       }.bind(this)
     );
   },
@@ -61,6 +54,8 @@ module.exports = yeoman.Base.extend({
     exec("npm install");
   },
   _buildReactBundles: function() {
+    this.log(yosay("Lint fix before building bundles"));
+    exec("npm run lint:fix");
     this.log(yosay("Building Micro-Frontend Bundle"));
     exec("npm run build:microfrontend");
     this.log(yosay("Building Independent Bundle"));
@@ -72,37 +67,22 @@ module.exports = yeoman.Base.extend({
     this._installReactDependencies();
     this._buildReactBundles();
 
-    var outputMsg = `\n\nYour service ${
-      this.props.name
-    } has been created.\nnpm run start - start your systemic micro-frontend service`;
+    var outputMsg = `\n\nYour service ${this.props.name} has been created.\nnpm run start - start your systemic micro-frontend service`;
     this.log(yosay(outputMsg));
   },
   _copyFiles: function(from, to) {
     const configFiles = fs.readdirSync(path.join(templatesFolder, from));
     const self = this;
     _.forEach(configFiles, function(file) {
-      self.fs.copyTpl(
-        self.templatePath(`./${from}/${file}`),
-        self.destinationPath(`${to}/${file.replace(/^_/, "")}`),
-        self.props
-      );
+      self.fs.copyTpl(self.templatePath(`./${from}/${file}`), self.destinationPath(`${to}/${file.replace(/^_/, "")}`), self.props);
     });
   },
   _copyAppFiles: function() {
     const self = this;
-    this.fs.copy(
-      this.templatePath("./test/.eslintrc"),
-      this.destinationPath("./test/.eslintrc")
-    );
-    this.fs.copy(
-      this.templatePath("./test/*"),
-      this.destinationPath("./test/")
-    );
+    this.fs.copy(this.templatePath("./test/.eslintrc"), this.destinationPath("./test/.eslintrc"));
+    this.fs.copy(this.templatePath("./test/*"), this.destinationPath("./test/"));
     _.forEach(this.props.components, function(component) {
-      self.fs.copy(
-        self.templatePath(`./lib/components/${component}/**/*`),
-        self.destinationPath(`./components/${component}/`)
-      );
+      self.fs.copy(self.templatePath(`./lib/components/${component}/**/*`), self.destinationPath(`./components/${component}/`));
     });
   }
 });

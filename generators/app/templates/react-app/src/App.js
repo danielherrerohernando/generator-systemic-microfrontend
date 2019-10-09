@@ -10,8 +10,10 @@ const App = () => {
           <h1>Micro-frontend template</h1>
         </header>
         <div className="<%= name %>-app-body">
-          Testing this microfrontend stuff
-          <button className="button">Do sth</button>
+          <p>Testing this microfrontend stuff</p>
+          <button type="button" onClick={() => {}}>
+            Do sth
+          </button>
         </div>
       </div>
     </div>
