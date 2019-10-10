@@ -50,7 +50,7 @@ module.exports = yeoman.Base.extend({
     return this.installDependencies({ npm: true, bower: false });
   },
   _installReactDependencies: function() {
-    this.log(yosay("Installing React App dependencies on react-app folder"));
+    this.log(yosay("Installing React App dependencies in react-app folder"));
     exec("npm install");
   },
   _buildReactBundles: function() {

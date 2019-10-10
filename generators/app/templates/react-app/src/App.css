@@ -3,7 +3,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.<%= name %> -app {
+.<%= name %>-app {
   width: 300px;
   text-align: center;
   border-radius: 8px;

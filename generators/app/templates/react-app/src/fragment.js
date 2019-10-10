@@ -3,8 +3,12 @@ import ReactDOM from "react-dom";
 
 import App from "./App";
 
-(function fragments() {
+const fragments = () => {
   class MicroFrontend extends HTMLElement {
+    log(...args) {
+      console.log("<%= name %>-tag", ...args);
+    }
+
     connectedCallback() {
       this.log("connected");
       this.render();
@@ -21,4 +25,6 @@ import App from "./App";
     }
   }
   window.customElements.define("<%= name %>-tag", MfTemplate);
-})();
+};
+
+fragments();
