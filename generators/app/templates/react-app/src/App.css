@@ -1,0 +1,24 @@
+.<%= name %> {
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.<%= name %> -app {
+  width: 300px;
+  text-align: center;
+  border-radius: 8px;
+  color: white;
+  background-color: #121212;
+  padding: 10px;
+  margin: 10px;
+}
+
+button {
+  background-color: #41364b;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 16px;
+  outline: none;
+  cursor: pointer;
+}
