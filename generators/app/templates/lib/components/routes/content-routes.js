@@ -16,7 +16,7 @@ module.exports = () => {
 
     app.get("/bundle", (req, res) =>
       res.sendFile(
-        path.resolve(`${__dirname}/../../react-app/export/app.js`)
+        path.resolve(`${__dirname}/../../react-app/microBundle/microApp.js`)
       )
     );
 

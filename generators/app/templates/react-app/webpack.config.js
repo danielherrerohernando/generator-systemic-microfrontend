@@ -4,15 +4,15 @@ const Dotenv = require("dotenv-webpack");
 module.exports = env => {
   const config = {
     entry: {
-      app: ["@babel/polyfill", path.resolve(__dirname, "src", env.TARGET === "export" ? "fragment.js" : "index.js")]
+      app: ["@babel/polyfill", path.resolve(__dirname, "src", env.TARGET === "export" ? "microIndex.js" : "index.js")]
     },
     externals: {
       react: "React",
       "react-dom": "ReactDOM"
     },
     output: {
-      path: path.join(__dirname, ".", env.TARGET === "export" ? "export" : "public/js"),
-      filename: "app.js",
+      path: path.join(__dirname, ".", env.TARGET === "export" ? "microBundle" : "public/js"),
+      filename: env.TARGET === "export" ? "microApp.js" : "app.js",
       publicPath: "/public/js/"
     },
     devServer: {
