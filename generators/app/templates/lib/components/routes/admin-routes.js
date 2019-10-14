@@ -18,9 +18,17 @@ module.exports = () => {
      * @route GET /__/manifest
      * @group Admin - Everything about admin routes
      * @returns 200 - Sucessful response
+     * @returns {ErrorServer.model} 500 - Server error
      */
     app.get("/__/manifest", (req, res) => res.json(manifest));
 
+    /**
+     * This endpoint serves the manifest
+     * @route GET /__/health
+     * @group Admin - Everything about admin routes
+     * @returns 200 - Sucessful response
+     * @returns {ErrorServer.model} 500 - Server error
+     */
     app.get("/__/health", (req, res) =>
       healthcheck
         .healthcheck()
